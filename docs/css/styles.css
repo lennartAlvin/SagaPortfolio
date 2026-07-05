@@ -886,6 +886,18 @@ section {
   padding: 2rem 1.25rem 2.5rem;
 }
 
+.site-footer__photo {
+  margin: 0 0 1.25rem;
+  display: flex;
+  justify-content: center;
+}
+
+.site-footer__photo img {
+  width: min(200px, 45vw);
+  border-radius: var(--radius-soft);
+  border: 1px solid var(--border);
+}
+
 .site-footer__brand {
   margin: 0;
   font-size: 1rem;
