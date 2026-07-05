@@ -33,6 +33,7 @@
   --text-tertiary: #7f91a4;
   --accent: #b7dced;
   --accent-strong: #d7f1fa;
+  --accent-deep: #5d8fa8;
   --accent-ink: #07111b;
   --border: rgba(215, 241, 250, 0.16);
   --border-strong: rgba(215, 241, 250, 0.28);
@@ -62,7 +63,8 @@ body {
   line-height: 1.65;
   color: var(--text-primary);
   background:
-    radial-gradient(circle at 15% 0%, rgba(183, 220, 237, 0.14), transparent 34rem),
+    radial-gradient(circle at 15% 0%, rgba(183, 220, 237, 0.18), transparent 34rem),
+    radial-gradient(circle at 84% 18%, rgba(93, 143, 168, 0.18), transparent 28rem),
     linear-gradient(180deg, #09111b 0%, #0d1723 44%, #09111b 100%);
   -webkit-font-smoothing: antialiased;
 }
@@ -78,6 +80,20 @@ body::before {
     linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.72), transparent 68%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: auto -10vw -28vw -10vw;
+  z-index: 79;
+  height: 48vw;
+  min-height: 24rem;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 22% 46%, rgba(215, 241, 250, 0.16), transparent 38%),
+    radial-gradient(ellipse at 74% 38%, rgba(93, 143, 168, 0.18), transparent 42%);
+  filter: blur(18px);
 }
 
 img,
@@ -194,7 +210,8 @@ textarea {
   height: 2.3rem;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-field);
-  background: rgba(183, 220, 237, 0.08);
+  background:
+    linear-gradient(145deg, rgba(241, 246, 251, 0.14), rgba(183, 220, 237, 0.04));
   color: var(--accent);
   font-size: 0.74rem;
   font-weight: 600;
@@ -343,8 +360,9 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(9, 17, 27, 0.28) 0%, rgba(9, 17, 27, 0.2) 38%, rgba(9, 17, 27, 0.9) 100%),
-    linear-gradient(90deg, rgba(9, 17, 27, 0.94) 0%, rgba(9, 17, 27, 0.55) 42%, rgba(9, 17, 27, 0.18) 100%);
+    radial-gradient(circle at 72% 28%, rgba(215, 241, 250, 0.2), transparent 28rem),
+    linear-gradient(180deg, rgba(9, 17, 27, 0.2) 0%, rgba(9, 17, 27, 0.14) 34%, rgba(9, 17, 27, 0.92) 100%),
+    linear-gradient(90deg, rgba(9, 17, 27, 0.95) 0%, rgba(9, 17, 27, 0.56) 42%, rgba(9, 17, 27, 0.08) 100%);
 }
 
 .hero__content {
@@ -364,12 +382,13 @@ textarea {
 }
 
 .hero__title {
-  max-width: 11ch;
+  max-width: 10.5ch;
   margin: 0;
-  font-size: clamp(3.2rem, 8vw, 6.6rem);
-  line-height: 0.96;
-  letter-spacing: -0.055em;
+  font-size: clamp(3.5rem, 8.5vw, 7.25rem);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
   font-weight: 600;
+  text-wrap: balance;
 }
 
 .hero__subtext {
@@ -385,6 +404,20 @@ textarea {
   flex-wrap: wrap;
   gap: 0.85rem;
   margin-top: 1.8rem;
+}
+
+.hero__signature {
+  position: absolute;
+  right: -0.06em;
+  bottom: -0.28em;
+  z-index: 1;
+  margin: 0;
+  color: rgba(241, 246, 251, 0.065);
+  font-size: clamp(6rem, 24vw, 22rem);
+  line-height: 0.8;
+  letter-spacing: -0.12em;
+  font-weight: 600;
+  pointer-events: none;
 }
 
 .btn {
@@ -433,7 +466,9 @@ textarea {
 .signal-strip {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: rgba(17, 27, 40, 0.78);
+  background:
+    linear-gradient(90deg, rgba(183, 220, 237, 0.08), transparent 34%),
+    rgba(17, 27, 40, 0.78);
 }
 
 .signal-strip__inner {
@@ -505,7 +540,7 @@ section {
 }
 
 .profile__grid,
-.contact__grid {
+.devotion__grid {
   display: grid;
   gap: 2.6rem;
   max-width: var(--max-width);
@@ -516,7 +551,9 @@ section {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  box-shadow: 0 24px 90px var(--shadow);
+  box-shadow:
+    0 24px 90px var(--shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
 }
 
 .profile__copy p {
@@ -563,9 +600,9 @@ section {
 }
 
 .programs,
-.contact {
+.devotion {
   background:
-    radial-gradient(circle at 80% 0%, rgba(183, 220, 237, 0.1), transparent 28rem),
+    radial-gradient(circle at 80% 0%, rgba(183, 220, 237, 0.14), transparent 28rem),
     linear-gradient(180deg, rgba(17, 27, 40, 0.1), rgba(17, 27, 40, 0.5));
 }
 
@@ -588,6 +625,7 @@ section {
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   background: var(--surface-elevated);
+  box-shadow: 0 20px 70px rgba(4, 10, 18, 0.22);
 }
 
 .bento__cell h3,
@@ -636,8 +674,8 @@ section {
 
 .bento__cell--silver {
   background:
-    radial-gradient(circle at top right, rgba(215, 241, 250, 0.28), transparent 54%),
-    linear-gradient(145deg, #dce8f0, #8fa5b8);
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.52), transparent 45%),
+    linear-gradient(145deg, #edf5f9 0%, #a7bbc9 54%, #6f879b 100%);
   color: #07111b;
 }
 
@@ -647,6 +685,7 @@ section {
 
 .bento__cell--ink {
   background:
+    radial-gradient(circle at 15% 0%, rgba(215, 241, 250, 0.13), transparent 44%),
     linear-gradient(145deg, rgba(183, 220, 237, 0.1), transparent 46%),
     #0c1520;
 }
@@ -656,13 +695,14 @@ section {
   flex-direction: column;
   justify-content: center;
   background:
+    radial-gradient(circle at 88% 10%, rgba(215, 241, 250, 0.16), transparent 28%),
     linear-gradient(90deg, rgba(183, 220, 237, 0.14), transparent),
     var(--surface-muted);
 }
 
 .bento__metric-value {
   color: var(--accent);
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(3rem, 7vw, 6rem);
   line-height: 1;
   letter-spacing: -0.06em;
   font-weight: 600;
@@ -711,7 +751,10 @@ section {
   padding: 1.45rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  background: rgba(255, 255, 255, 0.03);
+  background:
+    linear-gradient(145deg, rgba(241, 246, 251, 0.06), rgba(241, 246, 251, 0.015)),
+    rgba(255, 255, 255, 0.03);
+  box-shadow: 0 18px 60px rgba(4, 10, 18, 0.18);
 }
 
 .result-card__kicker {
@@ -754,7 +797,7 @@ section {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background:
-    radial-gradient(circle at 50% 0%, rgba(183, 220, 237, 0.12), transparent 32rem),
+    radial-gradient(circle at 50% 0%, rgba(183, 220, 237, 0.18), transparent 32rem),
     rgba(17, 27, 40, 0.62);
 }
 
@@ -770,7 +813,7 @@ section {
 
 .quote-block blockquote p {
   margin: 0;
-  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  font-size: clamp(1.7rem, 4vw, 3.4rem);
   line-height: 1.38;
   letter-spacing: -0.03em;
 }
@@ -845,90 +888,53 @@ section {
   }
 }
 
-.contact__details {
-  margin: 2rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.contact__details li {
-  display: grid;
-  gap: 0.25rem;
-  padding: 1rem 0;
-  border-top: 1px solid var(--border);
-}
-
-.contact__details span {
-  color: var(--text-tertiary);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.contact__details a {
-  color: var(--accent);
-}
-
-.contact__form {
-  padding: 1.5rem;
+.devotion__panel {
+  position: relative;
+  overflow: hidden;
+  min-height: 22rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  background: rgba(255, 255, 255, 0.035);
-  box-shadow: 0 22px 80px rgba(4, 10, 18, 0.24);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.16), transparent 26%),
+    radial-gradient(circle at 82% 86%, rgba(183, 220, 237, 0.16), transparent 30%),
+    linear-gradient(145deg, rgba(241, 246, 251, 0.08), rgba(241, 246, 251, 0.02));
+  box-shadow: 0 24px 90px rgba(4, 10, 18, 0.28);
 }
 
-.field {
-  display: grid;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+.devotion__panel::before {
+  content: "";
+  position: absolute;
+  inset: 1.2rem;
+  border: 1px solid rgba(215, 241, 250, 0.14);
+  border-radius: calc(var(--radius-card) - 6px);
+  pointer-events: none;
 }
 
-.field label {
-  color: var(--text-primary);
-  font-size: 0.92rem;
+.devotion__mark {
+  margin: 0;
+  color: rgba(241, 246, 251, 0.12);
+  font-size: clamp(5rem, 16vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.08em;
   font-weight: 600;
 }
 
-.field input,
-.field textarea {
-  width: 100%;
-  padding: 0.86rem 1rem;
-  border: 1px solid rgba(215, 241, 250, 0.28);
-  border-radius: var(--radius-field);
-  background: rgba(7, 17, 27, 0.78);
+.devotion__panel p:last-child {
+  position: relative;
+  max-width: 30rem;
+  margin: 2rem 0 0;
   color: var(--text-primary);
-}
-
-.field input::placeholder,
-.field textarea::placeholder {
-  color: var(--text-tertiary);
-}
-
-.field__helper,
-.field__error,
-.form-status {
-  margin: 0;
-  font-size: 0.86rem;
-}
-
-.field__helper {
-  color: var(--text-tertiary);
-}
-
-.field__error {
-  color: #ffb4b4;
-}
-
-.form-status {
-  margin-top: 1rem;
-  color: var(--accent);
+  font-size: clamp(1.25rem, 2.4vw, 2rem);
+  line-height: 1.35;
+  letter-spacing: -0.025em;
 }
 
 @media (min-width: 960px) {
-  .contact__grid {
+  .devotion__grid {
     grid-template-columns: 0.9fr 1.1fr;
     gap: 4.5rem;
-    align-items: start;
+    align-items: center;
   }
 }
 

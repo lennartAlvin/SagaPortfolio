@@ -72,39 +72,4 @@
     });
   }
 
-  var form = document.querySelector("[data-contact-form]");
-  if (form) {
-    form.addEventListener("submit", function (event) {
-      var name = form.querySelector("#name");
-      var email = form.querySelector("#email");
-      var message = form.querySelector("#message");
-      var status = form.querySelector("[data-form-status]");
-      var valid = true;
-
-      [
-        { field: name, key: "name", test: function (value) { return value.trim().length > 0; } },
-        { field: email, key: "email", test: function (value) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value); } },
-        { field: message, key: "message", test: function (value) { return value.trim().length > 0; } }
-      ].forEach(function (item) {
-        var error = form.querySelector('[data-error-for="' + item.key + '"]');
-        var ok = item.field && item.test(item.field.value);
-        if (error) error.hidden = ok;
-        if (!ok) valid = false;
-      });
-
-      if (!valid) {
-        event.preventDefault();
-        if (status) {
-          status.hidden = false;
-          status.textContent = "Please fix the highlighted fields.";
-        }
-        return;
-      }
-
-      if (status) {
-        status.hidden = false;
-        status.textContent = "Opening your email app with the request.";
-      }
-    });
-  }
 })();
