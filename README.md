@@ -1,6 +1,6 @@
 # Figure Skating Portfolio
 
-A high-end static portfolio site for figure skater **Elise Vaurin**, built with the [taste-skill](https://github.com/leonxlnx/taste-skill) design principles and ready for GitHub Pages.
+A high-end static portfolio site for figure skater **Saga Hallberg**, built with the [taste-skill](https://github.com/leonxlnx/taste-skill) design principles and ready for GitHub Pages.
 
 ## Live site
 
@@ -19,7 +19,7 @@ Open `http://localhost:8080`.
 
 - `docs/index.html` - Main portfolio page
 - `docs/css/styles.css` - Styles (cold luxury palette, responsive grids, reveal motion)
-- `docs/js/main.js` - Navigation, form validation, motion fallbacks
+- `docs/js/main.js` - Navigation and motion fallbacks
 - `docs/assets/hero.mp4` - Hero background video
 - `docs/assets/hero-poster.jpg` - Hero poster and Open Graph image
 - `docs/assets/*.svg` - Supporting portfolio visuals
@@ -27,10 +27,10 @@ Open `http://localhost:8080`.
 
 ## Design notes
 
-- **Design read:** Athlete portfolio for coaches, media, and recruiters, cold luxury editorial language
+- **Design read:** Passion-led figure skating portfolio, cold luxury editorial language
 - **Dials:** Variance 8 / Motion 6 / Density 4
 - **Palette:** Off-black surface, silver typography, ice-blue accent
-- **Hero:** Full-viewport video background with left-aligned copy and short calls to action
+- **Hero:** Full-viewport video background with left-aligned story copy and a subtle Saga wordmark
 
 ## Assets
 
