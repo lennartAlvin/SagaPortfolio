@@ -276,6 +276,10 @@ textarea {
   background: rgba(10, 14, 20, 0.96);
 }
 
+.mobile-nav[hidden] {
+  display: none !important;
+}
+
 .mobile-nav a {
   padding: 0.85rem 0.25rem;
   color: var(--text-secondary);
